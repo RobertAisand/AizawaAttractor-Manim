@@ -2,8 +2,8 @@
 
 Анимации аттракторов Лоренца и Айзавы, сделанные в [ManimGL](https://github.com/3b1b/manim).
 
-![preview](media/lorenz.gif, media/aizawa.gif)
-
+![preview](media/lorenz.gif)
+![preview](media/aizawa.gif)
 ## Что внутри
 
 - `LorenzAttractor`: 10 траекторий с близкими начальными условиями, которые со временем расходятся (чувствительность к начальным данным).
