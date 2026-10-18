@@ -29,6 +29,21 @@ class AizawaAttractor(InteractiveScene):
         shift = np.array([0, 0, -0.5]) * scale
         colors = color_gradient([BLUE_E, BLUE_D, BLUE_C, BLUE_B, BLUE_A], n_curves)
 
+        # Add the equations
+        equations = Tex(R"""\begin{aligned}
+                            &\frac{d x}{d t}=(z-b) x-d y\\
+                            &\frac{d y}{d t}=d x+(z-b) y\\
+                            &\frac{d z}{d t}=c+a z-\frac{z^3}{3}-\left(x^2+y^2\right)(1+e z)+f z x^3
+                            \end{aligned} """,
+                            font_size=20)
+        equations.set_color(RED_E)
+        equations.fix_in_frame()
+        equations.set_backstroke()
+        equations.to_corner(DL)
+        self.add(equations)
+
+
+
         np.random.seed(1)
         states = np.random.uniform(-0.5, 0.5, (n_curves, 3))
 
@@ -55,6 +70,7 @@ class AizawaAttractor(InteractiveScene):
 
         self.add(dots)
         self.add(tail)
+        self.add(equations)
         curves.set_opacity(0)
 
         def camera_motion(frame, dt):
